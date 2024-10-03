@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+    <title>Topic 3 - Access Modifiers and Encapsulation</title>
+</head>
+<body>
+    <h1>Topic 3 - Access Modifiers and Encapsulation</h1>
+    <h1 id="personOne"></h1>
+    <script>
+        class Person{
+
+        //Private Fields
+        #name;
+        #age;
+        #occupation;
+
+        constructor(name, age, occupation){
+            this.#name = name;
+            this.#age = age;
+            this.#occupation = occupation;
+        }
+
+        //Getters
+        get name(){
+            return this.#name;
+        }
+
+        get age(){
+            return this.#age;
+        }
+
+        get occupation(){
+            return this.#occupation;
+        }
+
+        // Method to display person information in the console
+        displayInfo() {
+            console.log("Name: " + this.name);
+            console.log("Age: " + this.age);
+            console.log("Occupation: " + this.occupation);
+        }
+
+        // Method to display person information in the HTML
+        displayInfoHTML() {
+            const personElement = document.getElementById('personOne');
+            personElement.innerHTML = `
+                <strong>Name:</strong> ${this.name}<br>
+                <strong>Age:</strong> ${this.age}<br>
+                <strong>Occupation:</strong> ${this.occupation}
+            `;
+        }
+        }
+
+
+        // Creating an object (instance) of the Person class
+        const personOne = new Person('Kent Ryan', 20, 'Student');
+
+        // Calling methods
+        personOne.displayInfo();  
+        personOne.displayInfoHTML();  
+    </script>
+</body>
+</html>
